@@ -1,5 +1,8 @@
 package com.example;
 
+import java.util.ArrayList;
+
+//Bussiness Logic
 abstract class Employee{
     int id;
     String name;
@@ -58,9 +61,42 @@ class PartTimeEmployee extends Employee{
     
 }
 
+class PayrollSystem{
+    private ArrayList<Employee> employeeList;
 
+    public PayrollSystem(){
+        employeeList = new ArrayList<>();
+    }
+
+    public void addEmployee(Employee employee){
+        employeeList.add(employee);
+    }
+
+    public void removeEmployee(int id){
+        Employee employeeToBeRemoved = null;
+        for(Employee employee: employeeList){
+            if(employee.getId()==id){
+                employeeToBeRemoved = employee;
+                break;
+            }     
+        }
+        if(employeeToBeRemoved != null){
+            employeeList.remove(employeeToBeRemoved);
+        }
+    }
+
+    public void displayEmployees(){
+        for(Employee employee: employeeList){
+            System.out.println(employee);
+        }
+    }
+}
+
+//Client logic
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        PayrollSystem payrollSystem = new PayrollSystem();
+        FullTimeEmployee emp1 = new FullTimeEmployee(1, "Rakshitha", 70000.0);
+        PartTimeEmployee emp2 = new PartTimeEmployee(2, "Lavish", 15, 100)
     }
 }
