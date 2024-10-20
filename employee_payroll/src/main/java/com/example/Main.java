@@ -97,6 +97,11 @@ public class Main {
     public static void main(String[] args) {
         PayrollSystem payrollSystem = new PayrollSystem();
         FullTimeEmployee emp1 = new FullTimeEmployee(1, "Rakshitha", 70000.0);
-        PartTimeEmployee emp2 = new PartTimeEmployee(2, "Lavish", 15, 100)
+        PartTimeEmployee emp2 = new PartTimeEmployee(2, "Lavish", 15, 100);
+
+        payrollSystem.addEmployee(emp1);
+        payrollSystem.addEmployee(emp2);
+        
+        
     }
 }
